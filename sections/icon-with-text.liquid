@@ -1,0 +1,70 @@
+{{ 'icon-with-text.css' | asset_url | stylesheet_tag }}
+
+<section class="icon-with-text">
+  <div class="icon-with-text-wrapper">
+    <div class="icons-grid">
+      {% for block in section.blocks %}
+        <div class="icons-grid__item">
+          {{ block.settings.icon | image_url: width: '300x' | image_tag: class: 'item-image' }}
+          <span>
+            {{ block.settings.text }}
+          </span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.icon-with-text');
+    if (!section) return;
+
+    gsap.to('.icons-grid__item', {
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.45,
+      stagger: 0.12,
+      ease: 'power3.out',
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Icon with text",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon-with-text",
+      "name": "Icon with text Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Icon text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon with text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,192 @@
+{% liquid
+  assign logo = section.settings.logo
+  assign main_links = section.settings.main_links.links
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+%}
+
+<header class="header">
+  <div class="container">
+    <div class="header--wrapper">
+      <div class="header--mobile-burger">
+        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.555556 0C0.408213 0 0.266905 0.0585316 0.162718 0.162718C0.0585316 0.266905 0 0.408213 0 0.555556C0 0.702898 0.0585316 0.844206 0.162718 0.948393C0.266905 1.05258 0.408213 1.11111 0.555556 1.11111H18.0111C18.1585 1.11111 18.2998 1.05258 18.4039 0.948393C18.5081 0.844206 18.5667 0.702898 18.5667 0.555556C18.5667 0.408213 18.5081 0.266905 18.4039 0.162718C18.2998 0.0585316 18.1585 0 18.0111 0H0.555556ZM0 8.33333C0 8.18599 0.0585316 8.04468 0.162718 7.9405C0.266905 7.83631 0.408213 7.77778 0.555556 7.77778H18.0111C18.1585 7.77778 18.2998 7.83631 18.4039 7.9405C18.5081 8.04468 18.5667 8.18599 18.5667 8.33333C18.5667 8.48068 18.5081 8.62198 18.4039 8.72617C18.2998 8.83036 18.0111 9.77908 18.0111 9.33398H9.44531H0.945312C0.555556 9.33398 0.445312 9.33398 0.162718 9.33398C0.0585316 9.2298 0 8.48068 0 8.33333ZM0 16.1111C0 15.9638 0.0585316 15.8225 0.162718 15.7183C0.266905 15.6141 0.408213 15.5556 0.555556 15.5556H18.0111C18.1585 15.5556 18.2998 15.6141 18.4039 15.7183C18.5081 15.8225 18.5667 15.9638 18.5667 16.1111C18.5667 16.2585 18.5081 16.3998 18.4039 16.504C18.2998 16.6081 18.1585 16.6667 18.0111 16.6667H0.555556C0.408213 16.6667 0.266905 16.6081 0.162718 16.504C0.0585316 16.3998 0 16.2585 0 16.1111Z" fill="black"/>
+        </svg>
+      </div>
+      {% if logo != blank %}
+        <a href="{{ shop.url }}" class="header--wrapper-logo">
+          {{ logo | image_url: width: '400x' | image_tag: alt: 'Logo', placeholder: 'Jelly logo' }}
+        </a>
+      {% endif %}
+      {% if main_links != blank %}
+        <div class="header-wrapper-links">
+          {% for header_link in main_links %}
+            <a href="{{ header_link.url }}" class="header-wrapper-link">
+              {{ header_link.title }}
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="header-wrapper-buttons">
+        {% if button_text != blank %}
+          <a href="{{ button_url }}" class="header--cta">
+            {{ button_text }}
+          </a>
+        {% endif %}
+
+        <div class="header--cart">
+          <script
+            src="{{ 'cart-drawer.js' | asset_url }}"
+            type="module"
+            fetchpriority="low"
+          ></script>
+
+          <cart-drawer-component
+            class="cart-drawer"
+            {{ block.shopify_attributes }}
+            {% if settings.auto_open_cart_drawer %}
+              auto-open
+            {% endif %}
+          >
+            <button
+              class="button header-actions__action button-unstyled"
+              on:click="/open"
+              aria-haspopup="dialog"
+              aria-label="{{ 'accessibility.cart' | t }}"
+              aria-describedby="cart-bubble-text"
+              data-testid="cart-drawer-trigger"
+            >
+              {% render 'cart-icon' %}
+              <span class="icon-buble"> 1 </span>
+            </button>
+
+            <dialog
+              ref="dialog"
+              class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{%endif%}"
+              aria-labelledby="{% if cart.empty? %}cart-drawer-heading-empty{% else %}cart-drawer-heading{% endif %}"
+              scroll-lock
+              cart-summary-sticky="true"
+            >
+              <div class="cart-drawer__inner">
+                <cart-items-component
+                  class="cart-items-component"
+                  data-section-id="{{ section.id }}"
+                >
+                  {%- if cart.empty? -%}
+                    <div class="cart-drawer__header">
+                      <button
+                        ref="closeButton"
+                        on:click="cart-drawer-component/close"
+                        class="button close-button cart-drawer__close-button button-unstyled"
+                        aria-label="{{ 'actions.close_dialog' | t }}"
+                      >
+                        <span class="svg-wrapper">
+                          {{- 'icon-close.svg' | inline_asset_content -}}
+                        </span>
+                      </button>
+                    </div>
+
+                    <div
+                      class="cart-drawer__content motion-reduce"
+                      aria-label="{{ 'accessibility.cart' | t }}"
+                    >
+                      <h2
+                        class="cart-drawer__heading h4 cart-drawer__heading--empty"
+                        id="cart-drawer-heading-empty"
+                      >
+                        {{ 'content.your_cart_is_empty' | t }}
+                      </h2>
+
+                      <div class="cart-drawer__items">
+                        {% render 'cart-products', drawer_context: 'drawer' %}
+                      </div>
+                    </div>
+                  {%- else -%}
+                    <div
+                      class="cart-drawer__header"
+                      id="cart-drawer-header"
+                    >
+                      <h2
+                        class="cart-drawer__heading h4"
+                        id="cart-drawer-heading"
+                      >
+                        {{ 'content.cart_title' | t }}
+                        {% render 'cart-bubble' %}
+                      </h2>
+
+                      <button
+                        ref="closeButton"
+                        on:click="cart-drawer-component/close"
+                        class="button close-button cart-drawer__close-button button-unstyled"
+                        aria-label="{{ 'actions.close_dialog' | t }}"
+                      >
+                        <span class="svg-wrapper">
+                          {{- 'icon-close.svg' | inline_asset_content -}}
+                        </span>
+                      </button>
+                    </div>
+
+                    <scroll-hint
+                      class="cart-drawer__content motion-reduce"
+                      aria-label="{{ 'accessibility.cart' | t }}"
+                      style="--header-height: 60px;"
+                    >
+                      <scroll-hint
+                        class="cart-drawer__items"
+                      >
+                        {% render 'cart-products', drawer_context: 'drawer' %}
+                      </scroll-hint>
+
+                      <div
+                        class="cart-drawer__summary"
+                      >
+                        {% render 'cart-summary' %}
+                      </div>
+                    </scroll-hint>
+                  {%- endif -%}
+                </cart-items-component>
+              </div>
+            </dialog>
+          </cart-drawer-component>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header new",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "main_links",
+      "label": "Header links"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header new"
+    }
+  ]
+}
+{% endschema %}

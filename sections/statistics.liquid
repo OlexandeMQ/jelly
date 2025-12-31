@@ -1,0 +1,156 @@
+{{ 'statistics.css' |  asset_url |  stylesheet_tag }}
+
+{% liquid
+  assign heading = section.settings.heading
+  assign content_title = section.settings.content_title
+%}
+
+<section class="statistics">
+  <div class="container">
+    <div class="statistics-wrapper">
+      {% if heading != blank %}
+        <h4 class="statistics-title">
+          {{ heading }}
+        </h4>
+      {% endif %}
+
+      <div class="statistics-content">
+        <div class="statistics-content--title">
+          <span>
+            {{ content_title }}
+          </span>
+        </div>
+        <div class="statistics-content--items">
+          {% for percent_item in section.blocks %}
+            <div class="statistics-content--item">
+              {% if percent_item.settings.percent != blank %}
+                <h4 class="percent-title">{{ percent_item.settings.percent }}%</h4>
+              {% endif %}
+              {% if percent_item.settings.description %}
+                <p class="percent-description">
+                  {{ percent_item.settings.description }}
+                </p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.statistics');
+    if (!section) return;
+
+    const numbers = section.querySelectorAll('.percent-title');
+
+    // MAIN TIMELINE
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+        once: true,
+      },
+    });
+
+    tl.to('.statistics-title', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out',
+    })
+      .to(
+        '.statistics-content--title',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power3.out',
+        },
+        '-=0.3'
+      )
+      .to(
+        '.statistics-content--item',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.15,
+          ease: 'power3.out',
+        },
+        '-=0.2'
+      );
+
+    // COUNT UP NUMBERS
+    numbers.forEach((el) => {
+      const target = parseInt(el.textContent, 10);
+      el.textContent = '0%';
+
+      gsap.to(el, {
+        innerHTML: target,
+        duration: 2,
+        ease: 'power2.out',
+        snap: { innerHTML: 1 },
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+        },
+        onUpdate: () => {
+          el.innerHTML = Math.round(el.innerHTML) + '%';
+        },
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Statistics",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "In clinical studies, users reported improvements in energy, focus, and overall vitality within weeks."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content_title",
+      "label": "Content title",
+      "default": "A Clinical Study on Royal Jelly Showed:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "percent-item",
+      "name": "Percent item",
+      "settings": [
+        {
+          "type": "number",
+          "id": "percent",
+          "label": "Percent",
+          "default": 50
+        },
+        {
+          "type": "inline_richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "of participants reported higher energy levels after 1 month."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Statistics"
+    }
+  ]
+}
+{% endschema %}

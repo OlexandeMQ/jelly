@@ -1,0 +1,252 @@
+ .why-jelly--wrapper {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   padding: 80px 0;
+   gap: 30px;
+ }
+
+ .why-jelly {
+   overflow: hidden;
+   padding: 0 20px;
+ }
+
+ .why-jelly--left {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 30px;
+ }
+
+ .why-jelly-heading {
+   font-size: 40px;
+   font-weight: 600;
+   margin: 0;
+ }
+
+ .why-jelly--description {
+   font-size: 21px;
+   font-weight: 400;
+   margin: 0;
+ }
+
+ .why-jelly-image {
+   max-width: 550px;
+ }
+
+ .why-jelly--right {
+   max-width: 585px;
+ }
+
+ .why-jelly--right-description {
+   font-size: 18px;
+   font-weight: 400;
+   margin: 0 0 40px 0;
+ }
+
+ .why-jelly--right-title {
+   font-size: 27px;
+   font-weight: 500;
+   margin: 0 0 40px 0;
+ }
+
+ .why-jelly--features {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   width: 100%;
+ }
+
+ .why-jelly--feature {
+   background: #f5f5dc;
+   padding: 20px 30px;
+   border: 1px solid #000000;
+   border-style: dashed;
+   border-radius: 27px;
+   display: flex;
+   align-items: flex-start;
+   gap: 30px;
+ }
+
+ .why-jelly--feature-content {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+ }
+
+ .why-jelly--feature-title {
+   font-size: 24px;
+   font-weight: 600;
+   color: #000000;
+   margin: 0;
+ }
+
+ .why-jelly--right .cta-button--wrapper {
+   width: 100%;
+   margin-top: 40px;
+   max-width: 100%;
+ }
+
+ .why-jelly--right .cta_button {
+   font-size: 24px;
+   font-weight: 500;
+   gap: 15px;
+ }
+
+ .why-jelly--feature-image {
+   max-width: 81px;
+ }
+
+ .why-jelly--feature-description {
+   font-size: 18px;
+   margin: 0;
+ }
+
+ .why-jelly--checkmark {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 4px;
+   font-size: 16px;
+   letter-spacing: 0.6px;
+   font-weight: 400;
+   margin-top: 10px;
+ }
+
+ .why-jelly--trusted {
+   background: #f5f5dc;
+   border-radius: 67px;
+   border: 1px solid #48484842;
+   border-style: dashed;
+   padding: 6px 20px 6px 8px;
+   width: fit-content;
+   display: flex;
+   align-items: center;
+   gap: 12px;
+ }
+
+ .why-jelly--trusted-images {
+   display: flex;
+   max-width: 84px;
+ }
+
+ .why-jelly--trusted-image {
+   max-width: 40px;
+   max-height: 40px;
+   border: 1px solid #2c0355;
+   border-radius: 100%;
+ }
+
+ .why-jelly--trusted-image:nth-child(2) {
+   transform: translateX(-18px);
+ }
+
+ .why-jelly--trusted-image:nth-child(3) {
+   transform: translateX(-35px);
+ }
+
+ .why-jelly--trusted-text {
+   font-size: 14px;
+   max-width: 140px;
+ }
+
+ .why-jelly--trusted-wrapper {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-top: 8px;
+ }
+
+ .why-jelly--trusted-text {
+   font-size: 14px;
+   line-height: 1.25;
+ }
+
+ @media screen and (max-width: 991px) {
+   .why-jelly--wrapper {
+     padding: 30px 0;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .why-jelly--description {
+     font-size: 16px;
+     line-height: 18px;
+     text-align: center;
+   }
+
+   .why-jelly--left {
+     align-items: center;
+     gap: 16px;
+   }
+
+   .why-jelly--right {
+     margin-top: 24px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .why-jelly--right-description {
+     font-size: 13px;
+     line-height: 18px;
+     font-weight: 400;
+     text-align: center;
+     max-width: 290px;
+     margin-bottom: 28px;
+   }
+
+   .why-jelly--right-title {
+     font-size: 18px;
+     margin-bottom: 20px;
+   }
+
+   .why-jelly--features {
+     gap: 12px;
+   }
+
+   .why-jelly--right .cta-button--wrapper {
+     margin-top: 22px;
+   }
+
+   .why-jelly--right .cta-button--wrapper .cta_button {
+     font-size: 20px;
+   }
+
+   .why-jelly--checkmark {
+     font-size: 12px;
+   }
+
+   .why-jelly--feature {
+     padding: 18px 18px;
+     gap: 11px;
+     max-height: 110px;
+   }
+
+   .why-jelly--feature-title {
+     font-size: 16px;
+     line-height: 16px;
+   }
+
+   .why-jelly--feature-content {
+     gap: 8px;
+   }
+
+   .why-jelly--feature-description {
+     font-size: 12px;
+     line-height: 130%;
+   }
+
+   .why-jelly--feature-image {
+     max-width: 54px;
+   }
+
+   .why-jelly-image {
+     margin-top: 30px;
+   }
+
+   .why-jelly-heading {
+     font-size: 26px;
+     line-height: 36px;
+   }
+ }

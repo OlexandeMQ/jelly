@@ -1,0 +1,208 @@
+{{ 'testimonials.css' |  asset_url |  stylesheet_tag }}
+
+{% liquid
+  assign stars_title = section.settings.stars_title
+  assign title = section.settings.title
+%}
+
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-wrapper">
+      <div class="testimonials-header">
+        <div class="stars-wrapper">
+          <div class="stars">
+            {% for i in (1..5) %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.6307 1.23232C11.7465 0.875685 12.2511 0.875685 12.3669 1.23232L14.5192 7.85612C14.571 8.01561 14.7196 8.12361 14.8873 8.12361H21.852C22.227 8.12361 22.3829 8.60345 22.0795 8.82386L16.445 12.9176C16.3093 13.0161 16.2525 13.1909 16.3043 13.3503L18.4566 19.9742C18.5724 20.3308 18.1643 20.6274 17.8609 20.407L12.2264 16.3132C12.0906 16.2146 11.907 16.2146 11.7713 16.3132L6.13675 20.407C5.83338 20.6274 5.42519 20.3308 5.54107 19.9742L7.69327 13.3503C7.74509 13.1909 7.68832 13.0161 7.55265 12.9176L1.91812 8.82386C1.61475 8.60345 1.77066 8.12361 2.14565 8.12361H9.1103C9.27799 8.12361 9.42664 8.01561 9.47843 7.85612L11.6307 1.23232Z" fill="url(#paint0_linear_1_581)"/>
+                <defs>
+                <linearGradient id="paint0_linear_1_581" x1="1.75781" y1="0.964844" x2="2049.96" y2="0.964844" gradientUnits="userSpaceOnUse">
+                <stop offset="1" stop-color="#FFB703"/>
+                </linearGradient>
+                </defs>
+              </svg>
+            {% endfor %}
+          </div>
+          <span class="stars-title"> {{ stars_title }}</span>
+        </div>
+        <h3 class="testimonials-title">{{ title }}</h3>
+      </div>
+      <div class="testimonials-items">
+        {% for block in section.blocks %}
+          <div class="testimonials-item">
+            <video
+              class="testimonial-item__video"
+              loop
+              muted
+              playsinline
+              poster="{{ block.settings.poster | image_url }}"
+            >
+              <source src="{{ block.settings.testimonial_item.sources[0].url }}" type="video/mp4">
+            </video>
+            <div
+              class="video-overlay"
+              style="background-image:url({{ block.settings.poster | image_url }})"
+            >
+              <span class="play-icon">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M30.2871 26.0246L20.9303 31.4537C20.1362 31.9139 19.1171 31.3566 19.1171 30.4287V19.5705C19.1171 18.6441 20.1347 18.0853 20.9303 18.547L30.2871 23.9761C30.4677 24.0793 30.6179 24.2283 30.7223 24.4082C30.8267 24.5881 30.8817 24.7924 30.8817 25.0004C30.8817 25.2084 30.8267 25.4127 30.7223 25.5925C30.6179 25.7724 30.4677 25.9214 30.2871 26.0246Z" fill="white"/>
+                  <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25Z" fill="white" fill-opacity="0.5"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.testimonials-item');
+
+    items.forEach((item) => {
+      const video = item.querySelector('video');
+      const overlay = item.querySelector('.video-overlay');
+
+      const stopVideo = () => {
+        video.pause();
+        video.currentTime = 0;
+        item.classList.remove('is-playing');
+      };
+
+      // CLICK ON OVERLAY → PLAY
+      overlay.addEventListener('click', () => {
+        items.forEach((i) => {
+          if (i !== item) {
+            const v = i.querySelector('video');
+            v.pause();
+            v.currentTime = 0;
+            i.classList.remove('is-playing');
+          }
+        });
+
+        video.play();
+        item.classList.add('is-playing');
+      });
+
+      // CLICK ON VIDEO → PAUSE
+      video.addEventListener('click', () => {
+        stopVideo();
+      });
+    });
+
+    // AUTOPAUSE ON SCROLL
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            const item = entry.target;
+            const video = item.querySelector('video');
+            video.pause();
+            video.currentTime = 0;
+            item.classList.remove('is-playing');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+  });
+</script>
+
+<script>
+  (function () {
+    function initTestimonialsAnimation(scope = document) {
+      if (!window.gsap || !window.ScrollTrigger) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const items = scope.querySelectorAll('.testimonials-item');
+      if (!items.length) return;
+
+      items.forEach((item, index) => {
+        // prevent double init (very important in Shopify)
+        if (item.dataset.animated) return;
+        item.dataset.animated = 'true';
+
+        const fromTop = index % 2 === 0;
+
+        const mask = document.createElement('span');
+        item.appendChild(mask);
+
+        Object.assign(mask.style, {
+          position: 'absolute',
+          inset: 0,
+          background: '#fff',
+          zIndex: 5,
+          transformOrigin: fromTop ? 'top' : 'bottom',
+          transform: 'scaleY(1)',
+          pointerEvents: 'none',
+        });
+
+        gsap.to(mask, {
+          scaleY: 0,
+          duration: 3,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            once: true,
+          },
+          onComplete: () => mask.remove(),
+        });
+      });
+    }
+
+    // Initial page load
+    initTestimonialsAnimation();
+
+    // Shopify theme editor support
+    document.addEventListener('shopify:section:load', (e) => {
+      initTestimonialsAnimation(e.target);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Raw Royal Jelly Users Share Their Experience"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "stars_title",
+      "label": "Stars title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "video",
+          "id": "testimonial_item",
+          "label": "Testimonial Item"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Video cover image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

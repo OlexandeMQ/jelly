@@ -1,0 +1,195 @@
+{{ 'compare.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign heading = section.settings.heading
+  assign advantages_items = section.blocks | where: 'type', 'advantages'
+  assign disadvantages_items = section.blocks | where: 'type', 'disadvantages'
+%}
+
+<section class="compare">
+  <div class="compare-wrapper">
+    {% if heading != blank %}
+      <h2 class="compare-title">
+        {{ heading }}
+      </h2>
+    {% endif %}
+
+    <div class="compare-grid">
+      <!-- LEFT COLUMN -->
+      <div class="compare-card compare-card--active">
+        {% if section.settings.product_image or section.settings.product_image_mobile %}
+          <picture>
+            {% if section.settings.product_image_mobile %}
+              <source
+                media="(max-width: 767px)"
+                srcset="{{ section.settings.product_image_mobile | image_url: width: 300 }}"
+              >
+            {% endif %}
+
+            {% if section.settings.product_image %}
+              {{
+                section.settings.product_image
+                | image_url: width: 300
+                | image_tag: class: 'compare-product', alt: 'Product'
+              }}
+            {% endif %}
+          </picture>
+        {% endif %}
+
+        <ul class="compare-list">
+          {% for advantage_item in advantages_items %}
+            <li class="compare-item">
+              {% render 'benefit-checkmark' %}
+              <span>
+                {{ advantage_item.settings.advantages_text }}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="compare-card compare-card--text">
+        <h4 class="compare-card-title">Other Supplements</h4>
+
+        <ul class="compare-list compare-card--muted">
+          {% for disadvantage_item in disadvantages_items %}
+            <li class="compare-item">
+              {% render 'disadvantage-icon' %}
+              <span>
+                {{ disadvantage_item.settings.disadvantages_text }}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.compare');
+    if (!section) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 75%',
+        once: true,
+      },
+    });
+
+    tl.to('.compare-title', {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: 'power3.out',
+    });
+
+    tl.to(
+      '.compare-card',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.15,
+        ease: 'power3.out',
+      },
+      '-=0.2'
+    );
+
+    tl.to(
+      '.compare-product',
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.45,
+        ease: 'power3.out',
+      },
+      '-=0.4'
+    );
+
+    tl.to(
+      '.compare-card--active .compare-item',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.35,
+        stagger: 0.08,
+        ease: 'power2.out',
+      },
+      '-=0.25'
+    );
+
+    tl.to(
+      '.compare-card--muted .compare-item',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.35,
+        stagger: 0.08,
+        ease: 'power2.out',
+      },
+      '-=0.3'
+    );
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Compare",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How Does Raw Royal Jelly Compare?"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_mobile",
+      "label": "Product image (mobile)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "advantages",
+      "name": "Advantages",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "advantages_text",
+          "label": "Advantages"
+        }
+      ]
+    },
+    {
+      "type": "disadvantages",
+      "name": "Disadvantages",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "disadvantages_text",
+          "label": "Disadvantages"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare"
+    }
+  ]
+}
+{% endschema %}

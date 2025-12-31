@@ -1,0 +1,89 @@
+{{ 'review-slider.css' | asset_url | stylesheet_tag }}
+
+<section id="reviews-slider" class="reviews-slider">
+  <div class="reviews-header">
+    <div class="stars">
+      {%- for i in (1..5) -%}
+        {% render 'star-icon' %}
+      {%- endfor -%}
+    </div>
+    <div class="reviews-count">
+      <strong>{{ section.settings.review_count }}</strong> Verified 5-star reviews*
+    </div>
+  </div>
+
+  <div class="swiper reviews-swiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <p class="review-text">{{ block.settings.review_text }}</p>
+          <p class="review-author">{{ block.settings.author }}, {{ block.settings.date }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.reviews-swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      speed: 900,
+      autoplay: {
+        delay: 4000, // 4 seconds
+        disableOnInteraction: false, // keeps autoplay running after user swipes
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Number of reviews",
+      "default": "47,281"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "It's been 2 weeks since I started taking Raw Royal Jelly every day before going to work and I already feel the difference."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "NICOLA C."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "18/01/25"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Slider"
+    }
+  ]
+}
+{% endschema %}

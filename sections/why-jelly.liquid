@@ -1,0 +1,281 @@
+{{ 'why-jelly.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign heading = section.settings.heading
+  assign description = section.settings.description
+  assign image = section.settings.image
+  assign right_description = section.settings.right_description
+  assign right_title = section.settings.right_heading
+  assign button_text = section.settings.button_label
+  assign button_url = section.settings.button_url
+%}
+
+<section class="why-jelly">
+  <div class="container">
+    <div class="why-jelly--wrapper">
+      <div class="why-jelly--left">
+        {% if heading != blank %}
+          <h2 class="why-jelly-heading">
+            {{ heading }}
+          </h2>
+        {% endif %}
+        {% if description != blank %}
+          <p class="why-jelly--description">
+            {{ description }}
+          </p>
+        {% endif %}
+        {% if image != blank %}
+          {{
+            image
+            | image_url: width: '900x'
+            | image_tag: placeholder: 'Jelly honey', alt: 'Jelly', class: 'why-jelly-image'
+          }}
+        {% endif %}
+      </div>
+      <div class="why-jelly--right">
+        {% if right_description != blank %}
+          <p class="why-jelly--right-description">
+            {{ right_description }}
+          </p>
+        {% endif %}
+        {% if right_title != blank %}
+          <h4 class="why-jelly--right-title">
+            {{ right_title }}
+          </h4>
+        {% endif %}
+
+        <div class="why-jelly--features">
+          {% for feature_item in section.blocks %}
+            <div class="why-jelly--feature">
+              {% if feature_item.settings.icon %}
+                {{
+                  feature_item.settings.icon
+                  | image_url: width: '300x'
+                  | image_tag: class: 'why-jelly--feature-image', placeholder: 'Feature item'
+                }}
+              {% endif %}
+
+              <div class="why-jelly--feature-content">
+                {% if feature_item.settings.title != blank %}
+                  <h3 class="why-jelly--feature-title">
+                    {{ feature_item.settings.title }}
+                  </h3>
+                {% endif %}
+                {% if feature_item.settings.description != blank %}
+                  <p class="why-jelly--feature-description">
+                    {{ feature_item.settings.description }}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if button_text != blank %}
+          <div class="cta-button--wrapper why-jelly">
+            <a href="{{ button_url }}" class="cta_button">
+              <span>
+                {{ button_text }}
+              </span>
+              {% render 'chevron-right' %}
+            </a>
+          </div>
+        {% endif %}
+        <div class="why-jelly--checkmark why-jelly">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.25 3.125H3.75C3.41848 3.125 3.10054 3.2567 2.86612 3.49112C2.6317 3.72554 2.5 4.04348 2.5 4.375V8.75C2.5 12.8687 4.49375 15.3648 6.16641 16.7336C7.96797 18.207 9.76016 18.707 9.83828 18.7281C9.9457 18.7573 10.059 18.7573 10.1664 18.7281C10.2445 18.707 12.0344 18.207 13.8383 16.7336C15.5063 15.3648 17.5 12.8687 17.5 8.75V4.375C17.5 4.04348 17.3683 3.72554 17.1339 3.49112C16.8995 3.2567 16.5815 3.125 16.25 3.125ZM13.5687 8.56719L9.19375 12.9422C9.1357 13.0003 9.06677 13.0464 8.9909 13.0779C8.91503 13.1093 8.8337 13.1255 8.75156 13.1255C8.66943 13.1255 8.5881 13.1093 8.51222 13.0779C8.43635 13.0464 8.36742 13.0003 8.30937 12.9422L6.43438 11.0672C6.3171 10.9499 6.25121 10.7909 6.25121 10.625C6.25121 10.4591 6.3171 10.3001 6.43438 10.1828C6.55165 10.0655 6.71071 9.99965 6.87656 9.99965C7.04241 9.99965 7.20147 10.0655 7.31875 10.1828L8.75 11.6164L12.6828 7.68281C12.7409 7.62474 12.8098 7.57868 12.8857 7.54725C12.9616 7.51583 13.0429 7.49965 13.125 7.49965C13.2071 7.49965 13.2884 7.51583 13.3643 7.54725C13.4402 7.57868 13.5091 7.62474 13.5672 7.68281C13.6253 7.74088 13.6713 7.80982 13.7027 7.88569C13.7342 7.96156 13.7503 8.04288 13.7503 8.125C13.7503 8.20712 13.7342 8.28844 13.7027 8.36431C13.6713 8.44018 13.6253 8.50912 13.5672 8.56719H13.5687Z" fill="black"/>
+          </svg>
+          <span>30-Day Money Back Guarantee</span>
+        </div>
+        <div class="why-jelly--trusted-wrapper why-jelly">
+          <div class="why-jelly--trusted">
+            <div class="why-jelly--trusted-images">
+              {% if section.settings.trusted_image_1 != blank %}
+                {{
+                  section.settings.trusted_image_1
+                  | image_url: width: '300x'
+                  | image_tag: placeholder: 'Trusted man 1', class: 'why-jelly--trusted-image'
+                }}
+              {% endif %}
+              {% if section.settings.trusted_image_2 != blank %}
+                {{
+                  section.settings.trusted_image_2
+                  | image_url: width: '300x'
+                  | image_tag: placeholder: 'Trusted man 2', class: 'why-jelly--trusted-image'
+                }}
+              {% endif %}
+              {% if section.settings.trusted_image_3 != blank %}
+                {{
+                  section.settings.trusted_image_3
+                  | image_url: width: '300x'
+                  | image_tag: placeholder: 'Trusted man 3', class: 'why-jelly--trusted-image'
+                }}
+              {% endif %}
+            </div>
+            {% if section.settings.trusted_text %}
+              <span class="why-jelly--trusted-text">
+                {{ section.settings.trusted_text }}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.why-jelly');
+    if (!section) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 75%',
+        toggleActions: 'play none none none',
+      },
+      defaults: {
+        ease: 'power3.out',
+        duration: 0.6,
+      },
+    });
+
+    tl.from('.why-jelly--left', {
+      x: -40,
+      opacity: 0,
+    })
+      .from(
+        '.why-jelly--right',
+        {
+          x: 40,
+          opacity: 0,
+        },
+        '-=0.4'
+      )
+      .from(
+        '.why-jelly--feature',
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.12,
+        },
+        '-=0.3'
+      )
+      .from(
+        [
+          '.why-jelly .why-jelly.cta-button--wrapper',
+          '.why-jelly.why-jelly--checkmark',
+          '.why-jelly.why-jelly--trusted-wrapper',
+        ],
+        {
+          y: 20,
+          opacity: 0,
+          stagger: 0.15,
+        },
+        '-=0.2'
+      );
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Why Jelly",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Raw Royal Jelly?"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "The Natural Solution for Restorative Sleep"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "right_description",
+      "label": "Right Description",
+      "default": "Based on government studies and expert research, Royal Jelly is proven to boost energy, enhance focus, and support overall wellness."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "right_heading",
+      "label": "Right title",
+      "default": "Key Benefits Include:"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button text",
+      "default": "Shop Royal Jelly"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "trusted_image_1",
+      "label": "Trusted image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "trusted_image_2",
+      "label": "Trusted image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "trusted_image_3",
+      "label": "Trusted image 3"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "trusted_text",
+      "label": "Trusted label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature-item",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Improved Focus and Clarity"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "The bioactive compounds in Royal Jelly support memory, concentration, and mental clarity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Jelly"
+    }
+  ]
+}
+{% endschema %}
