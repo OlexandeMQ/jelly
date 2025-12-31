@@ -6,285 +6,514 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "new_hero_xBhxBw": {
+      "type": "new-hero",
+      "name": "New Hero",
+      "settings": {
+        "heading": "Unlock Your Full Potential with Raw Royal Jelly",
+        "description": "Your daily boost for unstoppable energy, sharper focus, and lasting vitality.",
+        "video_url": "shopify://files/videos/Royal Jelly01604830 (2).mp4",
+        "checkmark_text": "30-Day Money Back Guarantee",
+        "button_label": "Shop Royal Jelly",
+        "button_url": ""
+      }
+    },
+    "review_slider_qYWxFQ": {
+      "type": "review-slider",
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "review_k9BnyR": {
+          "type": "review",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "review_text": "It's been 2 weeks since I started taking Raw Royal Jelly every day before going to work and I already feel the difference. 2",
+            "author": "NICOLA C.",
+            "date": "18/01/25"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "review_BxGrrM": {
+          "type": "review",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "review_text": "It's been 2 weeks since I started taking Raw Royal Jelly every day before going to work and I already feel the difference. 3",
+            "author": "NICOLA C.",
+            "date": "18/01/25"
+          }
+        },
+        "review_BHjgKF": {
+          "type": "review",
+          "settings": {
+            "review_text": "It's been 2 weeks since I started taking Raw Royal Jelly every day before going to work and I already feel the difference. 4",
+            "author": "NICOLA C.",
+            "date": "18/01/25"
+          }
+        },
+        "review_3dCEJH": {
+          "type": "review",
+          "settings": {
+            "review_text": "It's been 2 weeks since I started taking Raw Royal Jelly every day before going to work and I already feel the difference. 5",
+            "author": "NICOLA C.",
+            "date": "18/01/25"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "review_k9BnyR",
+        "review_BxGrrM",
+        "review_BHjgKF",
+        "review_3dCEJH"
       ],
-      "name": "t:names.hero",
+      "name": "Reviews Slider",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "review_count": "47,281"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "why_jelly_gzqNz6": {
+      "type": "why-jelly",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "feature_item_7TQVWN": {
+          "type": "feature-item",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "icon": "shopify://shop_images/image_37.webp",
+            "title": "Improved Focus and Clarity",
+            "description": "The bioactive compounds in Royal Jelly support memory, concentration, and mental clarity"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "feature_item_kEkHUQ": {
+          "type": "feature-item",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "icon": "shopify://shop_images/image.webp",
+            "title": "Sustained Energy All Day",
+            "description": "Royal Jelly’s rich blend of vitamins, amino acids, and 10-HDA helps fuel your body, keeping you active, alert, and ready."
+          }
+        },
+        "feature_item_B7L6Dt": {
+          "type": "feature-item",
+          "settings": {
+            "icon": "shopify://shop_images/image_1.webp",
+            "title": "Enhanced Potency & Vitality",
+            "description": "Support hormonal balance, boost stamina, and promote sexual wellness naturally with every dose."
+          }
         }
       },
-      "name": "Featured collection",
+      "block_order": [
+        "feature_item_7TQVWN",
+        "feature_item_kEkHUQ",
+        "feature_item_B7L6Dt"
+      ],
+      "name": "Why Jelly",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "heading": "Why Raw Royal Jelly?",
+        "description": "The Natural Solution for Restorative Sleep",
+        "image": "shopify://shop_images/Group_1484581370_2_1.png",
+        "right_description": "Based on government studies and expert research, Royal Jelly is proven to boost energy, enhance focus, and support overall wellness.",
+        "right_heading": "Key Benefits Include:",
+        "button_label": "Shop Royal Jelly",
+        "button_url": "",
+        "trusted_image_1": "shopify://shop_images/6f170bf0f571a51a152a8bf52c4d8b8c3559c87d.webp",
+        "trusted_image_2": "shopify://shop_images/79dab84df53467c2c99f6d17f2c638a05bb70613.webp",
+        "trusted_image_3": "shopify://shop_images/d6667e954777fbd6a9175fef41e2a1e6cb202bb8.webp",
+        "trusted_text": "Trusted by <strong>World</strong> <strong>Leading</strong> Professionals"
+      }
+    },
+    "video_section_YX4eT3": {
+      "type": "video-section",
+      "blocks": {
+        "testimonial_rf6Y8a": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_item": "shopify://files/videos/vecteezy_4k-footage-vertical-particle-effects-or-space-travel_41497098.mp4",
+            "poster": "shopify://shop_images/AnyConv.com__7ff6f15f9ae44262f04d2205fb8a5053ff068c58.webp"
+          }
+        },
+        "testimonial_PV7LaB": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_item": "shopify://files/videos/vecteezy_4k-footage-vertical-particle-effects-or-space-travel_41497098.mp4",
+            "poster": "shopify://shop_images/AnyConv.com__bf12e7c03181df6a60545d47d4c9729258ed6a3e.webp"
+          }
+        },
+        "testimonial_3w6L6m": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_item": "shopify://files/videos/vecteezy_4k-footage-vertical-particle-effects-or-space-travel_41497098.mp4",
+            "poster": "shopify://shop_images/AnyConv.com__ea69cf3f7154501ec10c64393f1baa08c8aff463.webp"
+          }
+        },
+        "testimonial_ttxGjR": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_item": "shopify://files/videos/vecteezy_4k-footage-vertical-particle-effects-or-space-travel_41497098.mp4",
+            "poster": "shopify://shop_images/AnyConv.com__df7f5b1adaaf7a48436ef1dbf754efc9ac9c9c88.webp"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rf6Y8a",
+        "testimonial_PV7LaB",
+        "testimonial_3w6L6m",
+        "testimonial_ttxGjR"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "title": "Raw Royal Jelly Users Share Their Experience",
+        "stars_title": "<strong>47,281+</strong> Verified 5-star reviews*"
+      }
+    },
+    "statistics_9cAynB": {
+      "type": "statistics",
+      "blocks": {
+        "percent_item_7rDhme": {
+          "type": "percent-item",
+          "settings": {
+            "percent": 89,
+            "description": "of participants reported higher energy levels after 1 month."
+          }
+        },
+        "percent_item_x3VwMx": {
+          "type": "percent-item",
+          "settings": {
+            "percent": 92,
+            "description": "of participants reduced fatigue during the day after 2 months"
+          }
+        },
+        "percent_item_4eihe6": {
+          "type": "percent-item",
+          "settings": {
+            "percent": 84,
+            "description": "of participants noticed better concentration after 2 months"
+          }
+        },
+        "percent_item_dpgnXh": {
+          "type": "percent-item",
+          "settings": {
+            "percent": 76,
+            "description": "of participants experienced increased libido and vitality after 1 month."
+          }
+        }
+      },
+      "block_order": [
+        "percent_item_7rDhme",
+        "percent_item_x3VwMx",
+        "percent_item_4eihe6",
+        "percent_item_dpgnXh"
+      ],
+      "name": "Statistics",
+      "settings": {
+        "heading": "In clinical studies, users reported improvements in energy, focus, and overall vitality within weeks.",
+        "content_title": "A Clinical Study on Royal Jelly Showed:"
+      }
+    },
+    "benefits_99h3T7": {
+      "type": "benefits",
+      "blocks": {
+        "benefit_item_Th6abH": {
+          "type": "benefit-item",
+          "settings": {
+            "title": "Increased Testosterone",
+            "description": "Royal Jelly naturally supports healthy testosterone levels, promoting vitality, muscle strength, and enhanced libido for men looking to maintain peak performance.",
+            "benefit_image": "shopify://shop_images/AnyConv.com__Picture_image.webp",
+            "benefit_image_second": "shopify://shop_images/infographic-placard-about-benefits-honey-600w-267595565.webp"
+          }
+        },
+        "benefit_item_WhKMtw": {
+          "type": "benefit-item",
+          "settings": {
+            "title": "Boosted Energy Levels",
+            "description": "Royal Jelly delivers sustained energy throughout the day without crashes, keeping you active and focused.",
+            "benefit_image": "shopify://shop_images/AnyConv.com__Picture_image_1.webp",
+            "benefit_image_second": "shopify://shop_images/benefits-button-showing-bonus-or-perks-as-company-award_MJ-iwZvd_thumb_2cb091c2-e27c-4549-af64-f60ebe1b4b88.jpg"
+          }
+        },
+        "benefit_item_UTctEg": {
+          "type": "benefit-item",
+          "settings": {
+            "title": "Improved Mental Clarity",
+            "description": "The unique compounds in Royal Jelly support brain health, enhancing focus, memory, and cognitive performance, helping you stay sharp when it matters most.",
+            "benefit_image": "shopify://shop_images/AnyConv.com__Picture_image_2.webp",
+            "benefit_image_second": "shopify://shop_images/benefits-button-showing-bonus-or-perks-as-company-award_MJ-iwZvd_thumb_2cb091c2-e27c-4549-af64-f60ebe1b4b88.jpg"
+          }
+        },
+        "benefit_item_bWwGYA": {
+          "type": "benefit-item",
+          "settings": {
+            "title": "Stronger Immune System",
+            "description": "Rich in antioxidants, vitamins, and amino acids, Royal Jelly helps strengthen your body’s defenses, protecting you from illness and fatigue.",
+            "benefit_image": "shopify://shop_images/AnyConv.com__Picture_image_3.webp",
+            "benefit_image_second": "shopify://shop_images/benefits-button-showing-bonus-or-perks-as-company-award_MJ-iwZvd_thumb_2cb091c2-e27c-4549-af64-f60ebe1b4b88.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_item_Th6abH",
+        "benefit_item_WhKMtw",
+        "benefit_item_UTctEg",
+        "benefit_item_bWwGYA"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "1g Daily, Over 20+ Key Health Benefits",
+        "description": "Royal Jelly is associated with over 20 documented health benefits including improved energy, cognitive function, immune support, anti-aging effects, enhanced vitality, and more.",
+        "button_label": "Shop Royal Jelly",
+        "button_url": "#",
+        "trusted_image_1": "shopify://shop_images/6f170bf0f571a51a152a8bf52c4d8b8c3559c87d.webp",
+        "trusted_image_2": "shopify://shop_images/79dab84df53467c2c99f6d17f2c638a05bb70613.webp",
+        "trusted_image_3": "shopify://shop_images/d6667e954777fbd6a9175fef41e2a1e6cb202bb8.webp",
+        "trusted_text": "Trusted by <strong>World</strong> <strong>Leading</strong> Professionals"
+      }
+    },
+    "compare_section_EEFUWf": {
+      "type": "compare-section",
+      "blocks": {
+        "advantages_EzMRwt": {
+          "type": "advantages",
+          "settings": {
+            "advantages_text": "Works 100% Naturally"
+          }
+        },
+        "advantages_QRKNKG": {
+          "type": "advantages",
+          "settings": {
+            "advantages_text": "Non-Habit Forming"
+          }
+        },
+        "advantages_JFeXhy": {
+          "type": "advantages",
+          "settings": {
+            "advantages_text": "Made with Quality Ingredients"
+          }
+        },
+        "advantages_meVAWL": {
+          "type": "advantages",
+          "settings": {
+            "advantages_text": "Supports Energy & Vitality"
+          }
+        },
+        "advantages_rfdhGA": {
+          "type": "advantages",
+          "settings": {
+            "advantages_text": "Lab-Tested for Safety"
+          }
+        },
+        "disadvantages_7pk3Th": {
+          "type": "disadvantages",
+          "settings": {
+            "disadvantages_text": "Works 100% Naturally"
+          }
+        },
+        "disadvantages_bCXDxA": {
+          "type": "disadvantages",
+          "settings": {
+            "disadvantages_text": "Non-Habit Forming"
+          }
+        },
+        "disadvantages_nEpam4": {
+          "type": "disadvantages",
+          "settings": {
+            "disadvantages_text": "Made with Quality Ingredients"
+          }
+        },
+        "disadvantages_kHGCPy": {
+          "type": "disadvantages",
+          "settings": {
+            "disadvantages_text": "Supports Energy & Vitality"
+          }
+        },
+        "disadvantages_fp7BBn": {
+          "type": "disadvantages",
+          "settings": {
+            "disadvantages_text": "Lab-Tested for Safety"
+          }
+        }
+      },
+      "block_order": [
+        "advantages_EzMRwt",
+        "advantages_QRKNKG",
+        "advantages_JFeXhy",
+        "advantages_meVAWL",
+        "advantages_rfdhGA",
+        "disadvantages_7pk3Th",
+        "disadvantages_bCXDxA",
+        "disadvantages_nEpam4",
+        "disadvantages_kHGCPy",
+        "disadvantages_fp7BBn"
+      ],
+      "name": "Compare",
+      "settings": {
+        "heading": "How Does Raw Royal Jelly Compare?",
+        "product_image": "shopify://shop_images/AnyConv.com__image.webp",
+        "product_image_mobile": "shopify://shop_images/AnyConv.com__image_0d6e9ff4-29c9-4989-9a6a-24a474c6d0a9.webp"
+      }
+    },
+    "secrets_JCaLXx": {
+      "type": "secrets",
+      "blocks": {
+        "secrets_item_tbAw8V": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "90% Felt Increased Energy Throughout the Day"
+          }
+        },
+        "secrets_item_f6Gjyj": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "85% Reported Improved Mental Clarity and Focus"
+          }
+        },
+        "secrets_item_JTpjqp": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "83% Experienced Enhanced Libido"
+          }
+        },
+        "secrets_item_Dwafwd": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "88% Saw a Boost in Overall Wellness"
+          }
+        },
+        "secrets_item_YT3Tn6": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "80% Reported Feeling Less Stressed"
+          }
+        },
+        "secrets_item_VhCGB3": {
+          "type": "secrets_item",
+          "settings": {
+            "secret_text": "78% Noticed Improved Sleep Quality"
+          }
+        }
+      },
+      "block_order": [
+        "secrets_item_tbAw8V",
+        "secrets_item_f6Gjyj",
+        "secrets_item_JTpjqp",
+        "secrets_item_Dwafwd",
+        "secrets_item_YT3Tn6",
+        "secrets_item_VhCGB3"
+      ],
+      "name": "Secrets",
+      "settings": {
+        "heading": "Your Secret to Energy, Focus, and Peak Vitality Every Day",
+        "description": "Our pure royal jelly naturally supports your energy levels, enhances mental clarity, and promotes hormonal balance for overall wellness.",
+        "secrets_title": "<em>In a study based on participants using Royal Jelly:</em>",
+        "secrets_image": "shopify://shop_images/AnyConv_com__AnyConv_com__image_10_17e38f04-cc7b-4f96-ac81-09740cd1a8cc_png.webp",
+        "button_label": "Shop Royal Jelly",
+        "button_url": ""
+      }
+    },
+    "icon_with_text_4mHiib": {
+      "type": "icon-with-text",
+      "blocks": {
+        "icon_with_text_jcL6D7": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/den_1_1.svg",
+            "text": "Fresh Jelly sourced from Denmark"
+          }
+        },
+        "icon_with_text_VR99Rq": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/Vector.svg",
+            "text": "30-Day Satisfaction Guarantee"
+          }
+        },
+        "icon_with_text_zXPpri": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/sjip_1.svg",
+            "text": "Free & Easy 30-day Returns"
+          }
+        },
+        "icon_with_text_4mKJe9": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/Clip_path_group.svg",
+            "text": "Highest Purity 100% Organic"
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_jcL6D7",
+        "icon_with_text_VR99Rq",
+        "icon_with_text_zXPpri",
+        "icon_with_text_4mKJe9"
+      ],
+      "name": "Icon with text",
+      "settings": {}
+    },
+    "faq_4WGE6T": {
+      "type": "faq",
+      "blocks": {
+        "faq_item_GYL7kk": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What is Raw Royal Jelly?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        },
+        "faq_item_jy6LnD": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How do I take Royal Jelly?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        },
+        "faq_item_RmLwan": {
+          "type": "faq-item",
+          "settings": {
+            "question": "When do I take it?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        },
+        "faq_item_gEdBqE": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much do I need to take, and can I accidentally take too much?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        },
+        "faq_item_9G6fAE": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How can I store it?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        },
+        "faq_item_mtCyVA": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How long does it take until I start seeing the benefits?",
+            "answer": "Royal jelly is a product of animal origin, secreted exclusively by nurse worker bees, between the age of 5 and 14 days of adult life, as a secretion of certain glands located on their heads. It is a light yellow substance of a protein nature, with a characteristic odor and a sour-sugar taste."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_GYL7kk",
+        "faq_item_jy6LnD",
+        "faq_item_RmLwan",
+        "faq_item_gEdBqE",
+        "faq_item_9G6fAE",
+        "faq_item_mtCyVA"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading": "Have any questions? We've got the answers."
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "new_hero_xBhxBw",
+    "review_slider_qYWxFQ",
+    "why_jelly_gzqNz6",
+    "video_section_YX4eT3",
+    "statistics_9cAynB",
+    "benefits_99h3T7",
+    "compare_section_EEFUWf",
+    "secrets_JCaLXx",
+    "icon_with_text_4mHiib",
+    "faq_4WGE6T"
   ]
 }
